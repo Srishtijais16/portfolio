@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { Analytics } from '@vercel/analytics/react';
 import { ArrowDown, ArrowUpRight, Award, BookOpen, Check, Code2, Database, ExternalLink, MapPin, Menu, X } from 'lucide-react';
 import './styles.css';
 
@@ -83,8 +84,8 @@ function Publication() { return <section id="publications" className="section se
 
 function Contact() { return <section id="contact" className="contact section"><div className="contact-glow"/><span className="contact-kicker">09 / Let’s build something intelligent</span><h2>Have an idea worth<br/><em>engineering?</em></h2><p>I’m open to AI engineering roles, thoughtful collaborations, and ambitious technical projects.</p><a className="email-link" href="mailto:srishtijaiswal51@gmail.com">srishtijaiswal51@gmail.com <ArrowUpRight/></a><div className="socials"><a href="https://linkedin.com/in/srishti-jaiswal-a92796257" target="_blank" rel="noreferrer"><ExternalLink/>LinkedIn</a><a href="https://github.com/Srishtijais16" target="_blank" rel="noreferrer"><Code2/>GitHub</a><a href="https://www.hackerrank.com/profile/srishtijaiswal51" target="_blank" rel="noreferrer"><Code2/>HackerRank</a><a href="https://instagram.com/s.r.i.s.h.t.i.__16" target="_blank" rel="noreferrer"><ExternalLink/>Instagram</a></div></section> }
 
-function Footer() { return <footer><a className="brand" href="#top"><span>SJ</span><i/></a><p>Designed & engineered for clarity, curiosity, and impact.</p><span>© {new Date().getFullYear()} Srishti Jaiswal · Property of Siddharth Magesh</span></footer> }
+function Footer() { return <footer><a className="brand" href="#top"><span>SJ</span><i/></a><p>Designed & engineered for clarity, curiosity, and impact.</p><span>© {new Date().getFullYear()} Srishti Jaiswal{/* · Property of Siddharth Magesh */}</span></footer> }
 
 function App(){ useEffect(()=>{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>o.observe(el));return()=>o.disconnect()},[]); return <><Navbar/><main><Hero/><About/><Experience/><Projects/><Skills/><Education/><Credentials/><Publication/><Contact/></main><Footer/></> }
 
-createRoot(document.getElementById('root')).render(<React.StrictMode><App/></React.StrictMode>);
+createRoot(document.getElementById('root')).render(<React.StrictMode><App/><Analytics/></React.StrictMode>);
